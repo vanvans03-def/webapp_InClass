@@ -24,11 +24,13 @@
         <span class="loginLink"><a href="login.html">เข้าสู่ระบบ</a></span>
     </p>
     <ul>
-        <li><a href="post.php?id=1" >กระทู้ที่ 1</a></li>
-        <li><a href="post.php?id=2" >กระทู้ที่ 2</a></li>
-        <li><a href="post.php?id=3" >กระทู้ที่ 3</a></li>
-        <li><a href="post.php?id=4" >กระทู้ที่ 4</a></li>
-        <li><a href="post.php?id=5" >กระทู้ที่ 5</a></li>
+        <?php
+        for ($i = 1 ; $i <= 10 ; $i++){
+            ?>
+        <li><a href="post.php?id=<?php echo $i?>" >กระทู้ที่ <?php echo $i?></a></li>
+      <?php 
+       }
+       ?>
     </ul>
 </form>
 </body>

@@ -1,8 +1,15 @@
 <?php 
  $id = $_GET["id"];
  if(empty($id)){
-    $id=0;
+    $id="error pls try again";
  }
+ $oddEven="";
+
+  if(($id % 2) == 0){
+    $oddEven="เป็นกระทู้หมายเลขคู่";
+  }else{
+    $oddEven="เป็นกระทู้หมายเลขคี่";
+  }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -41,6 +48,7 @@
         <h1 class="Center">Teera Webboard</h1>
         <hr />
         <h1 class="Center">ต้องการดูกระทู้ที่ <?php echo $id ?></h1>
+        <h1 class="Center"><?php echo $oddEven ?></h1>
         <table class="border">
           <tr>
             <td class="headerForm" colspan="2">แสดงความคิดเห็น</td>
