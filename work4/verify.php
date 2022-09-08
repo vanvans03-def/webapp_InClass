@@ -38,15 +38,18 @@
           if($User == "admin" && $Password == "ad1234"){
             ?>
             <p>ยินดีต้อนรับคุณ ADMIN</p>
+            <a href="index.php">กลับไปหน้าหลัก</a>
 
             <?php
           }elseif($User == "member" && $Password == "mem1234"){
           ?>
             <p>ยินดีต้อนรับคุณ MEMEBER</p>
+            <a href="index.php">กลับไปหน้าหลัก</a>
             <?php 
           }else{
             ?>
             <p class="">ชื่อบัญชีหรือรหัสผ่านไม่ถูกต้อง</p>
+            <a href="index.php">กลับไปหน้าหลัก</a>
             <?php
           }
             ?>
