@@ -4,7 +4,6 @@
     $id="error pls try again";
  }
  $oddEven="";
-
   if(($id % 2) == 0){
     $oddEven="เป็นกระทู้หมายเลขคู่";
   }else{
