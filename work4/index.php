@@ -14,7 +14,6 @@ session_start();
     <style>
     .loginLink {
         float: right;
-
     }
     </style>
 </head>
