@@ -1,6 +1,28 @@
 <?php
+session_start();
+
     $User = $_POST["userLogin"];
     $Password = $_POST["passwordLogin"];
+    
+
+    
+  
+    if($User == "admin"){
+      $_SESSION['username'] =  $User;
+      $_SESSION['role'] = "a";
+      $_SESSION['id'] = session_id();
+    }elseif($User == "member"){
+      $_SESSION['username'] =  $User;
+      $_SESSION['role'] = "m";
+      $_SESSION['id'] = session_id();
+    }
+    if(!isset($_SESSION['id'])){
+      header("Location:index.php");
+    }
+    
+   
+    
+
 
 ?>
 
@@ -36,7 +58,10 @@
         <div class="Center">
             <?php 
           if($User == "admin" && $Password == "ad1234"){
+    
             ?>
+
+
             <p>ยินดีต้อนรับคุณ ADMIN</p>
             <a href="index.php">กลับไปหน้าหลัก</a>
 

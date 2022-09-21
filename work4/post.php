@@ -1,5 +1,6 @@
 <?php 
  $id = $_GET["id"];
+ 
  if(empty($id)){
     $id="error pls try again";
  }
