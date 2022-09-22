@@ -30,32 +30,21 @@ session_start();
             </select>
             </p>
             <?php 
-        if(empty($_SESSION['username'])){
-        $Login=FALSE;
-        }else{
-        $Login=TRUE;
-        }
-
-
-        if($Login == TRUE){
-
-            echo "ID = ".$_SESSION['id']."";
-           
+        if(isset($_SESSION['username'])){
             ?>
             <span class="" style="margin-left: 30px;">ผู้ใช้งานระบบ: <?php  echo $_SESSION['username']?></span>
             <span class="loginLink"><a href="logout.php">ออกจากระบบ</a></span>
             <?php
-        }elseif($Login == FALSE){
+        }else{
             ?>
             <span class="" style="margin-left: 30px;">ผู้ใช้งานระบบ: GUEST</span>
             <span class="loginLink"><a href="login.php">เข้าสู่ระบบ</a></span>
             <?php
+     
         }
         ?>
 
 
-
-       
         <a href="newpost.php" class="">สร้างกระทู้ใหม่</a>
         <ul>
 

@@ -11,8 +11,6 @@ if(empty($_SESSION['id'])){
     exit(0);
 }
 
-echo $_SESSION['username']
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
