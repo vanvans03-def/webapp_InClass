@@ -22,30 +22,34 @@ session_start();
     <form>
         <h1>Teera Webboard</h1>
         <hr>
+        
         <p>หมวดหมู่
             <select name="option">
                 <option value="1">--ทั้งหมด--</option>
                 <option value="2">เรื่องทั่วไป</option>
                 <option value="3">เรื่องเรียน</option>
             </select>
-            </p>
+            
             <?php 
         if(isset($_SESSION['username'])){
             ?>
+         
             <span class="" style="margin-left: 30px;">ผู้ใช้งานระบบ: <?php  echo $_SESSION['username']?></span>
             <span class="loginLink"><a href="logout.php">ออกจากระบบ</a></span>
+    
             <?php
         }else{
             ?>
-            <span class="" style="margin-left: 30px;">ผู้ใช้งานระบบ: GUEST</span>
+             <span class="" style="margin-left: 30px;">ผู้ใช้งานระบบ: GUEST</span>
             <span class="loginLink"><a href="login.php">เข้าสู่ระบบ</a></span>
+     
             <?php
      
         }
         ?>
+</p>
 
-
-        <a href="newpost.php" class="">สร้างกระทู้ใหม่</a>
+        <div class=""><a href="newpost.php" class="">สร้างกระทู้ใหม่</a></div>
         <ul>
 
             <?php

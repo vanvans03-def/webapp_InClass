@@ -7,11 +7,11 @@ session_start();
 
     
   
-    if($User == "admin"){
+    if($User == "admin" && $Password == "ad1234"){
       $_SESSION['username'] =  $User;
       $_SESSION['role'] = "a";
       $_SESSION['id'] = session_id();
-    }elseif($User == "member"){
+    }elseif($User == "member" && $Password == "mem1234"){
       $_SESSION['username'] =  $User;
       $_SESSION['role'] = "m";
       $_SESSION['id'] = session_id();
