@@ -6,6 +6,7 @@ $id = $_SESSION['id'];
 
 session_destroy();
 header('location:index.php');
+exit(0);
 if(empty($_SESSION['id'])){
     header('location:index.php');
     exit(0);
