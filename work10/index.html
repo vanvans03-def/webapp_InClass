@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ManageEmployee</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css"
+    />
+    <style>
+      img{
+        width: 100px;
+        height: 80px;
+      }
+    </style>
+  </head>
+  <body>
+   
+        <nav class="navbar  navbar-expand-lg navbar-light bg-light">
+           <div class="container-fluid">
+            <a class="navbar-brand" href="#">สำนักคอมพิวเตอร์ฯ</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+               <span class="navbar-toggler-icon"></span>
+               </button> 
+              <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+              <div class= "navbar-nav">
+                <a class="nav-link " aria-current="page" href="#">หน้าแรก</a>
+              <a class= "nav-link" href="#">หน้าสอง</a>
+                   <a class= "nav-link active" href="#">การจัดการข้อมูล</a>
+                </div> 
+             </div> 
+           </div> 
+      </nav> 
+      <main class="mt-5">
+        <section class="container">
+          <ol class="breadcrumb mt-4">
+            <li class="breadcrumb-item"><a href="#" class="">หน้าแรก</a></li>
+            <li class="breadcrumb-item">การจัดการข้อมูล</li>
+          </ol>
+        </section>
+
+        <section class="container">
+          <div class="alert alert-success"><span class="fw-bold fs-5">สำเร็จ ! </span>ข้อมูลได้ถูกบันทึกเรียบร้อยแล้ว</div>
+
+
+          <p class="fs-1 text-lg-start text-center mb-4">การจัดการบุคลากร</p>
+
+          <div class="row">
+            <div class="col-lg-5 text-lg-start">
+              <button type="button" class="btn btn-success">อนุมัติ</button>
+              <button type="button" class="btn btn-danger">ไม่อนุมิติ</button>
+
+            
+
+              <div class="btn-group ">
+                <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown"
+                 aria-expanded="false">Action</button>
+                <ul class="dropdown-menu">
+                  <li class=""><a href="#" class="dropdown-item">เรียกดู</a></li>
+                  <li class=""><a href="#" class="dropdown-item">แก้ไข</a></li>
+                  <li class=""><a href="#" class="dropdown-item">ลบ</a></li>
+                </ul>
+
+              </div>
+            </div>
+
+            <div class="col-lg-4 offset-lg-3">
+              <div class="input-group mb-3">
+                <span class="input-group-text"><i class="bi bi-search"></i></span>
+                <input type="text" class="form-control" placeholder="ค้นหา...">
+              </div>
+            </div>
+
+
+          </div>
+
+
+          <div class="row">
+            <div class="col-md-12">
+              <!--table-->
+              <div class="table-resposive">
+                <table class="table table-borderd">
+                  <caption>จำนวนบุคลากรทั้งหมด 5000 คน</caption>
+                  <thead class="table-secondary">
+                    <tr class="active">
+                      <th>#</th>
+                      <th>รูปประจำตัว</th>
+                      <th>ชื่อ</th>
+                      <th>นามสกุล</th>
+                      <th>อีเมล</th>
+                      <th>action</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th class="text-center" scope="row"><input type="checkbox"></th>
+                      <td class="text-center"><img src="https://i.ytimg.com/vi/Zr-qM5Vrd0g/maxresdefault.jpg" alt=""></td>
+                      <td>Teera</td>
+                      <td>Hitchana</td>
+                      <td class="align-middle">teerahitchana@gmail.com</td>
+                      <td>
+                        <div class="btn-group">
+                          <button class="btn btn-info" type="button" data-bs-toggle="modal" data-bs-target="#view-modal"><i class="bi bi-eye"></i> เรียกดู</button>
+                          <button class="btn btn-success" type="button"><i class="bi bi-pencil"></i> แก้ไข</button>
+                          <button class="btn btn-danger" type="button"><i class="bi bi-trash"></i> ลบ</button>
+                        </div>
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <th class="text-center" scope="row"><input type="checkbox"></th>
+                      <td class="text-center"><img src="https://pics.me.me/thumb_cat-face-meme-painting-mixed-media-stickers-redbubble-54059575.png" alt=""></td>
+                      <td>สมหมาย <span class="badge bg-danger"> ออกจากราขการ</span></td>
+                      <td>จัดเต็ม</td>
+                      <td class="align-middle">rockrock@gmail.com</td>
+                      <td>
+                        <div class="btn-group">
+                          <button class="btn btn-info" type="button" data-bs-toggle="modal" data-bs-target="#view-modal"><i class="bi bi-eye"></i> เรียกดู</button>
+                          <button class="btn btn-success" type="button"><i class="bi bi-pencil"></i> แก้ไข</button>
+                          <button class="btn btn-danger" type="button"><i class="bi bi-trash"></i> ลบ</button>
+                        </div>
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <th class="text-center" scope="row"><input type="checkbox"></th>
+                      <td class="text-center"><img src="https://static.displate.com/280x392/displate/2022-07-07/fb201c5aef2a8558a1eec3a095be6d49_1c1023275f02c2ee7bc146309a812775.jpg" alt=""></td>
+                      <td>Suchard</td>
+                      <td>MeowMeow</td>
+                      <td class="align-middle">suchard@gmail.com</td>
+                      <td>
+                        <div class="btn-group">
+                          <button class="btn btn-info" type="button" data-bs-toggle="modal" data-bs-target="#view-modal"><i class="bi bi-eye"></i> เรียกดู</button>
+                          <button class="btn btn-success" type="button"><i class="bi bi-pencil"></i> แก้ไข</button>
+                          <button class="btn btn-danger" type="button"><i class="bi bi-trash"></i> ลบ</button>
+                        </div>
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <th class="text-center" scope="row"><input type="checkbox"></th>
+                      <td class="text-center"><img src="https://www.liveabout.com/thmb/fxGnjPVpRlFfpGnl26UW4GyBnSQ=/1411x1411/smart/filters:no_upscale()/cat-giving-finger-590355133df78c5456e78839.jpg" alt=""></td>
+                      <td>Somchai</td>
+                      <td>Seemork</td>
+                      <td class="align-middle">somchai@gmail.com</td>
+                      <td>
+                        <div class="btn-group">
+                          <button class="btn btn-info" type="button"><i class="bi bi-eye" data-bs-toggle="modal" data-bs-target="#view-modal"></i> เรียกดู</button>
+                          <button class="btn btn-success" type="button"><i class="bi bi-pencil"></i> แก้ไข</button>
+                          <button class="btn btn-danger" type="button"><i class="bi bi-trash"></i> ลบ</button>
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+            </div>
+          </div>
+
+
+
+
+
+          <!-- Modal -->
+        <div class="modal fade" id="view-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">ประวัติ</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <div class="card">
+                  <div class="card-bordy">
+                    <img src="https://i.ytimg.com/vi/Zr-qM5Vrd0g/maxresdefault.jpg" alt="">
+                    <h5 class="card-title-pt-3">Teera Hitchana</h5>
+                    <p class="card-text">อาชีพนักฟุตบอลสโมสรลิเวอร์พูล ปัจจุบันอายุ 25 ปี</p>
+                  </div>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        </section>
+
+
+      </main>
+
+
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
+   
+  </body>
+</html>
