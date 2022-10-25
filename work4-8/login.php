@@ -14,6 +14,11 @@ if(isset($_SESSION['id'])){
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Login Page</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css"
+    />
     <style>
       .borderLogin {
         border: 2px solid black;
@@ -34,29 +39,44 @@ if(isset($_SESSION['id'])){
     </style>
   </head>
   <body>
-    <div class="mainContainer">
+    <div class="container">
       <form action="verify.php" method="post">
         <h1 class="Center">Teera Webboard</h1>
         <hr />
-
-        <table class="borderLogin">
-          <tr>
-            <td class="headerLoginForm" colspan="2">เข้าสู่ระบบ</td>
-          </tr>
-          <tr>
-            <td>Login</td>
-            <td><input type="text" name="userLogin" /></td>
-          </tr>
-          <tr>
-            <td>Password</td>
-            <td><input type="password" name="passwordLogin" /></td>
-          </tr>
-          <tr>
-            <td class="Center" colspan="2">
-              <button>Login</button>
-            </td>
-          </tr>
-        </table>
+      <?php include "nav.php" //userLogin passwordLogin ?> 
+        <br>
+       
+        <br>
+        <div class="row">
+          <div class="col-md-4"></div>
+          <div class="col-md-4">
+            <div class="card text-dark bg-light">
+            <?php 
+        if(isset($_SESSION['errormsg'])){
+          ?>
+      <div class="alert alert-danger" role="alert">ชื่อบัญชีหรือรหัสผ่านไม่ถูกต้อง</div>
+          <?php
+        }unset($_SESSION['errormsg']);
+        ?>
+              <div class="card-header fw-bold">เข้าสู่ระบบ</div>
+              <div class="card-body">
+                <div class="form-group">
+                  <label for="userLogin">Login:</label>
+                  <input type="text" name="userLogin" class="form-control mt-2">
+                </div>
+                <div class="form-group">
+                  <label for="userPassword">Password:</label>
+                  <input type="password" name="passwordLogin" class="form-control mt-2">
+                </div>
+                <center >
+                  <button class="btn btn-secondary btn-sm mt-3 ">เข้าสู่ระบบ</button>
+                </center>
+               
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4"></div>
+        </div>
         <p class="Center">
           ถ้ายังไม่ได้เป็นสมาชิก<span
             ><a href="register.php">กรุณาสมัครสมาชิก</a></span
@@ -65,4 +85,9 @@ if(isset($_SESSION['id'])){
       </form>
     </div>
   </body>
+  <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
 </html>
