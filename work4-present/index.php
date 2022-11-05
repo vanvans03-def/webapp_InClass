@@ -25,50 +25,59 @@ session_start();
 <body>
     <div class="container">
 
-
         <form>
             <h1>Teera Webboard</h1>
             <hr>
             <?php include "nav.php"; 
-        if(isset($_SESSION['id'])){ ?>
+         ?>
+            <div class="d-flex bd-highlight mb-3">
+                    <div class="p-2 bd-highlight">หมวดหมู่ :</div>
+                    <div class="p-2 bd-highlight">
+                        <select name="category" id="" class="form-select">
+                            <?php 
+                                $conn = new PDO("mysql:host=localhost;dbname=webboard;charset=utf8","root","");
+                                $sql = "SELECT * FROM category";
+                                foreach($conn->query($sql) as $row){
+                                    echo "<option value=".$row['id'].">".$row['name']."</option>";
+                                }$conn=null;
+                            
+                            ?>
+                        </select>
+                    </div>
 
-            <div class="d-flex justify-content-between">
-                <?php } ?>
-                <div>
-
-                    <label for="">หมวดหมู่</label>
-                    <span class="dropdown">
-                        <button class="btn btn-light dropdown-toggle btn-sm" type="button" id="dropdown2"
-                            data-bs-toggle="dropdown" aria-expanded="fales">--ทั้งหมด--</button>
-                        <ul class="dropdown-menu" aria-labelledby="dropdown2">
-                            <li><a href="#" class="dropdown-item">ทั้งหมด</a></li>
-                            <li><a href="#" class="dropdown-item">เรื่องเรียน</a></li>
-                            <li><a href="#" class="dropdown-item">เรื่องทั่วไป</a></li>
-
-                        </ul>
-                    </span>
-                </div>
-
-                <?php 
-        if(isset($_SESSION['id'])){
-        ?>
-                <span class="">
-                    <a href="newpost.php" type="button" class="btn btn-success btn-sm"><i class="bi bi-plus"></i>
-                        สร้างกระทู้ใหม่</a>
-                </span>
-
+                            <?php 
+                    if(isset($_SESSION['id'])){
+                    ?>
+                            <div class="ms-auto p-2 bd-highlight">
+                                <span class="">
+                                    <a href="newpost.php" type="button" class="btn btn-success btn-sm"><i class="bi bi-plus"></i>
+                                        สร้างกระทู้ใหม่</a>
+                                </span>
+                            </div>
+                            <?php } ?>
             </div>
 
-            <?php } ?>
             <table class="table table-striped">
 
                 <?php
-        for ($i = 1 ; $i <= 10 ; $i++){
-            ?>
-                <tr>
-                    <td class="">
-                        <a style="text-decoration:none" href="post.php?id=<?php echo $i?>">กระทู้ที่ <?php echo $i?></a>
+                $conn = new PDO("mysql:host=localhost;dbname=webboard;charset=utf8","root","");                
+                $sql="SELECT t3.name,t1.id,t1.title,t2.login,t1.post_date FROM post as t1
+                INNER JOIN user as t2 ON (t1.user_id=t2.id) INNER JOIN category as t3 ON
+                (t1.cat_id=t3.id) ORDER BY t1.post_date DESC";
 
+                $result=$conn->query($sql);
+
+                while($row=$result->fetch()){
+
+                $conn=null;
+                ?>
+                <tr>
+                    <td class=""><span class="fw-bold">[ <?php echo $row[0] ?> ]</span>
+
+                        <a style="text-decoration:none" href="post.php?id=<?php echo $row[1] ?>">
+                        <?php echo $row[2]; ?>
+                    </a>
+                        <br><?php echo  $row[3] ." - ". $row[4] ?>
 
                         <?php 
                 if(empty($_SESSION['role'])){
@@ -78,7 +87,8 @@ session_start();
                     if($_SESSION['role'] == 'a'){
                             ?>
                     <td>
-                        <a href="delete.php?id=<?php echo $i?>" class="btn btn-danger btn-sm" type="button">ลบ</a>
+                        <a href="delete.php?id=<?php echo $row[1] ;?>" class="btn btn-danger btn-sm" type="button"
+                            onclick="retunrmyFunc()">ลบ</a>
                     </td>
 
                     <?php
@@ -89,7 +99,8 @@ session_start();
                 </tr>
 
                 <?php 
-       }
+       
+    }
        ?>
 
             </table>
@@ -97,6 +108,15 @@ session_start();
         </form>
     </div>
 </body>
+
+<script>
+function retunrmyFunc() {
+
+    let r = confirm("ต้องการลบจริงหรือไม่");
+    return r;
+}
+</script>
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
 </script>
